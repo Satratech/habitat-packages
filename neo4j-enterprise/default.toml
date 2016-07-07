@@ -1,0 +1,19 @@
+username = "neo4j"
+password = "neo4j"
+[dbms.tx_log.rotation]
+    retention_policy = "100M size"
+[dbms.memory.pagecache]
+    size = "512M"
+[wrapper.java]
+    additional = "-Dneo4j.ext.udc.source=docker"
+[dbms.memory.heap]
+    initial_size = 512
+    max_size = 512
+[dbms]
+    unmanaged_extension_classes = ""
+    allow_format_migration = true
+[bms.security]
+    auth_enabled = true
+
+# HA Config
+
