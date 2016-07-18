@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-pkg_origin=keyvan
+#@IgnoreInspection BashAddShebang
+pkg_origin=satra
 pkg_name=neo4j-enterprise
 pkg_version=3.0.3
 pkg_maintainer="Your Name <your email address>"
@@ -10,12 +10,11 @@ pkg_deps=(core/curl core/server-jre)
 #pkg_deps=(core/jdk8 core/curl core/vim core/procps-ng)
 pkg_bin_dirs=(neo4j/bin)
 #pkg_lib_dirs=(neo4j/lib)
-pkg_svc_run="echo "neooooooo $NEO4J_HOME" && export $NEO4J_HOME=$pkg_prefix/neo4j && export $NEO4J_CONFIG=$pkg_svc_config_path && neo4j console"
-pkg_expose=(9494 9493 9898)
+pkg_expose=(7474 7473 7678)
 
-#do_build() {
-#  export JAVA_HOME=$(hab pkg path core/server-jre)
-#}
+do_build() {
+  return 0
+}
 
 do_install() {
   build_line "Copying files from $PWD"
@@ -23,6 +22,5 @@ do_install() {
   mkdir -p $NEO4J_HOME
   cp -r * $NEO4J_HOME
   sed -i "/#!\/usr\/bin\/env/c\#!\/bin\/bash" $NEO4J_HOME/bin/neo4j
-  cd $NEO4J_HOME/bin
-  attach
+#  attach
 }
