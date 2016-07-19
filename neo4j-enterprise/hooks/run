@@ -3,9 +3,6 @@
 export NEO4J_HOME={{pkg.path}}/neo4j
 export NEO4J_CONF=$NEO4J_HOME/conf
 
-echo "-------111111111 $NEO4J_HOME"
-echo "-------222222222 {{pkg.svc_path}}"
-
 cp -Rf {{pkg.svc_config_path}}/* $NEO4J_CONF
 cd $NEO4J_HOME/bin
 ls -lah

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+chown -R hab:hab {{pkg.svc_path}}
+chown -R hab:hab {{pkg.path}}
+chown -R hab:hab {{pkg.svc_config_path}}
