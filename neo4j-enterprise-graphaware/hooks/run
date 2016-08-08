@@ -2,17 +2,7 @@
 
 export NEO4J_HOME={{pkg.path}}/neo4j
 export NEO4J_CONF=$NEO4J_HOME/conf
-chown -R hab:hab $NEO4J_HOME/plugins
-tail -5 $NEO4J_CONF/neo4j.conf
 
 cp -Rf {{pkg.svc_config_path}}/* $NEO4J_CONF
-cd $NEO4J_HOME/plugins
-ls -lah
-echo "----------------------------------------------------"
 cd $NEO4J_HOME/bin
-./neo4j start
-echo "waiting"
-sleep 20
-echo "restarting"
-./neo4j sttop
 ./neo4j console
